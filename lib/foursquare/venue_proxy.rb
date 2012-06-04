@@ -7,6 +7,10 @@ module Foursquare
     def find(id)
       Foursquare::Venue.new(@foursquare, @foursquare.get("venues/#{id}")["venue"])
     end
+    
+    def links(id)
+      Foursquare::Venue.new(@foursquare, @foursquare.get("venues/#{id}/links")["venue"])
+    end
 
     def search(options={})
       #raise ArgumentError, "You must include :ll" unless options[:ll]
