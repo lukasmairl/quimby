@@ -4,12 +4,18 @@ module Foursquare
 
     def initialize(foursquare, json)
       @foursquare, @json = foursquare, json
+      
+      puts json.to_yaml
     end
     
     def fetch
       @json = @foursquare.get("venues/#{id}")["venue"]
       self
     end
+    
+    def links
+      puts "---- test- inn here ----"
+    end 
 
     def id
       @json["id"]
