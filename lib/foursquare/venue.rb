@@ -30,6 +30,10 @@ module Foursquare
     def categories
       @categories ||= @json["categories"].map { |hash| Foursquare::Category.new(hash) }
     end
+    
+    def links
+      @json["links"]
+    end
 
     def verified?
       @json["verified"]
