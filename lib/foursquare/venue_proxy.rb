@@ -9,9 +9,7 @@ module Foursquare
     end
     
     def links(id)
-      Foursquare::Venue.new(@foursquare, @foursquare.get("venues/#{id}/links")["venue"])
-      #test = @foursquare.get("venues/#{id}/links")
-      #puts test.to_yaml
+      @foursquare.get("venues/#{id}/links")
     end
 
     def search(options={})
