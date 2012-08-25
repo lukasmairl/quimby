@@ -10,8 +10,9 @@ module Foursquare
     
     def reply(checkin_id, options={})
       puts '-------- checkin_id -------'
+      puts checkin_id
       puts options.to_yaml
-      #response = Typhoeus::Request.post("checkins/#{checkin_id}", options)
+      response = Typhoeus::Request.post("checkins/#{checkin_id}", options)
       #puts response.to_yaml
       #Foursquare.log(response.inspect)
       #error(response) || response["response"]
