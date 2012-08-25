@@ -10,7 +10,10 @@ module Foursquare
     
     def reply(checkin_id, options={})
       
-      request = Typhoeus::Request.post("checkins/#{checkin_id}", options)
+      response = Typhoeus::Request.post("checkins/#{checkin_id}", options)
+      puts response.to_yaml
+      Foursquare.log(response.inspect)
+      error(response) || response["response"]
       
       #@foursquare.post("checkins/#{checkin_id}", options)
       #Foursquare::Checkin.new(@foursquare, @foursquare.post("checkins/#{checkin_id}", options))
