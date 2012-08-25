@@ -9,7 +9,7 @@ module Foursquare
     end
     
     def reply(checkin_id, options={})
-      @foursquare.post("checkins/#{checkin_id}", options)
+      #@foursquare.post("checkins/#{checkin_id}", options)
       #Foursquare::Checkin.new(@foursquare, @foursquare.post("checkins/#{checkin_id}", options))
     end
 

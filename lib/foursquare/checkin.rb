@@ -7,9 +7,9 @@ module Foursquare
     end
     
     def reply(checkin_id, options={})
-      response = Typhoeus::Request.post("checkins/#{checkin_id}/reply", options)
-      Foursquare.log(response.inspect)
-      error(response) || response["response"]
+      #response = Typhoeus::Request.post("checkins/#{checkin_id}/reply", options)
+      #Foursquare.log(response.inspect)
+      #error(response) || response["response"]
     end
 
     def id
