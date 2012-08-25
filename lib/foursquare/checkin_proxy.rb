@@ -12,7 +12,7 @@ module Foursquare
       puts '-------- checkin_id -------'
       puts checkin_id
       puts options.to_yaml
-      response = Typhoeus::Request.post("checkins/#{checkin_id}", options)
+      response = Typhoeus::Request.post("https://api.foursquare.com/v2/checkins/#{checkin_id}", options)
       puts response.inspect
       #Foursquare.log(response.inspect)
       #error(response) || response["response"]
