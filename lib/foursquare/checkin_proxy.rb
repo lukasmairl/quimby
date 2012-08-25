@@ -7,6 +7,10 @@ module Foursquare
     def find(id)
       Foursquare::Checkin.new(@foursquare, @foursquare.get("checkins/#{id}")["checkin"])
     end
+    
+    def reply(checkin_id, options={})
+      Foursquare::Checkin.new(@foursquare, @foursquare.post("checkins/#{checkin_id}", options)
+    end
 
     def recent(options={})
       @foursquare.get("checkins/recent", options)["recent"].map do |json|
