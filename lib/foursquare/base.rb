@@ -44,14 +44,17 @@ module Foursquare
       Foursquare.log("POST #{API + path}")
       Foursquare.log("PARAMS: #{params.inspect}")
       merge_auth_params(params)
+      
+      puts "------ second ---------"
+      response = Typhoeus::Request.post(API + path, :params => params)
+      puts response.inspect
+      
       response = JSON.parse(Typhoeus::Request.post(API + path, :params => params).body)
       Foursquare.log(response.inspect)
       error(response) || response["response"]
       
       
-      puts "------ second ---------"
-      response = Typhoeus::Request.post(API + path, :params => params)
-      puts response.inspect
+
       
     end
     
