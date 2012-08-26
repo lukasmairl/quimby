@@ -47,6 +47,12 @@ module Foursquare
       response = JSON.parse(Typhoeus::Request.post(API + path, :params => params).body)
       Foursquare.log(response.inspect)
       error(response) || response["response"]
+      
+      
+      puts "------ second ---------"
+      response = Typhoeus::Request.post(API + path, :params => params)
+      puts response.inspect
+      
     end
     
     def authorize_url(redirect_uri)
