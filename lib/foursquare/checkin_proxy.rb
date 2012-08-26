@@ -17,17 +17,18 @@ module Foursquare
     end
     
     def reply(checkin_id, options={})
-      puts '-------- testing checkin_id -------'
-      puts checkin_id
-      puts options.to_yaml
+      puts "---- hello ------"
+      #puts '-------- testing checkin_id -------'
+      #puts checkin_id
+      #puts options.to_yaml
       #response = Typhoeus::Request.post("https://api.foursquare.com/v2/checkins/#{checkin_id}", options)
       #Foursquare::Checkin.new(@foursquare, @foursquare.post("checkins/#{checkin_id}", options))
       #@foursquare.post("checkins/#{checkin_id}", options)s
       
-      puts "------ second ---------"
-      merge_auth_params(params)
-      response = Typhoeus::Request.post("https://api.foursquare.com/v2/checkins/#{checkin_id}/reply", :params => params)
-      puts response.inspect
+      #puts "------ second ---------"
+      #merge_auth_params(params)
+      #response = Typhoeus::Request.post("https://api.foursquare.com/v2/checkins/#{checkin_id}/reply", :params => params)
+      #puts response.inspect
       
       
       #puts response.inspect
