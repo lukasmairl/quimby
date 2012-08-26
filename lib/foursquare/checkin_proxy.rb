@@ -22,7 +22,7 @@ module Foursquare
       puts options.to_yaml
       #response = Typhoeus::Request.post("https://api.foursquare.com/v2/checkins/#{checkin_id}", options)
       #Foursquare::Checkin.new(@foursquare, @foursquare.post("checkins/#{checkin_id}", options))
-      #@foursquare.post("checkins/#{checkin_id}", options)
+      #@foursquare.post("checkins/#{checkin_id}", options)s
       
       puts "------ second ---------"
       merge_auth_params(params)
