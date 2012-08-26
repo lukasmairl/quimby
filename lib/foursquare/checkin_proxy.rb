@@ -8,13 +8,27 @@ module Foursquare
       Foursquare::Checkin.new(@foursquare, @foursquare.get("checkins/#{id}")["checkin"])
     end
     
+    def merge_auth_params(params)
+      if @access_token
+        params.merge!(:oauth_token => @access_token)
+      else
+        params.merge!(:client_id => @client_id, :client_secret => @client_secret)
+      end
+    end
+    
     def reply(checkin_id, options={})
       puts '-------- checkin_id -------'
       puts checkin_id
       puts options.to_yaml
       #response = Typhoeus::Request.post("https://api.foursquare.com/v2/checkins/#{checkin_id}", options)
       #Foursquare::Checkin.new(@foursquare, @foursquare.post("checkins/#{checkin_id}", options))
-      @foursquare.post("checkins/#{checkin_id}", options)
+      #@foursquare.post("checkins/#{checkin_id}", options)
+      
+      puts "------ second ---------"
+      merge_auth_params(params)
+      response = Typhoeus::Request.post("https://api.foursquare.com/v2/checkins/#{checkin_id}/reply", :params => params)
+      puts response.inspect
+      
       
       #puts response.inspect
       #Foursquare.log(response.inspect)
